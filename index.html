@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #322653;
+            --btn-color: #EA1179;
+            --box-shadow: 0px 0px 5px var(--btn-color);
+            --color: white;
+            --highlight-color: #ff60a7;
+        }
+
+        body {
+            margin: 0;
+            background: linear-gradient(135deg, var(--bg-color), var(--highlight-color));
+            font-family: 'Ubuntu', sans-serif;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            border: 2px solid #ea1179;
+            margin: 20px auto;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .logo {
+            color: var(--color);
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .logo label {
+            color: var(--btn-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul a {
+            color: var(--color);
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            transition: color 0.3s, transform 0.3s ease;
+        }
+
+        nav ul a:hover {
+            color: var(--btn-color);
+            transform: translateY(-3px);
+        }
+
+        nav ul a:active {
+            transform: translateY(2px);
+        }
+
+        /* Scroll Effects */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .cta-btn {
+            background-color: var(--btn-color);
+            padding: 12px 20px;
+            border-radius: 25px;
+            color: var(--color);
+            text-decoration: none;
+            font-size: 18px;
+            box-shadow: var(--box-shadow);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: #e10070;
+            transform: scale(1.05);
+        }
+
+        .cta-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Add some padding and margin */
+        .content {
+            padding: 40px 20px;
+            color: var(--color);
+            text-align: center;
+        }
+
+        .content h1 {
+            font-size: 36px;
+            color: var(--btn-color);
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 18px;
+        }
+
+        /* Responsive Layout */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Siva<label class="logo">Portfolio</label></a>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">Blogs</a></li>
+                <li><a href="img.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="content">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Explore my projects, courses, blogs, and much more.</p>
+        <a href="about.html" class="cta-btn">Learn More About Me</a>
+    </div>
+
+    <div id="about" class="content">
+        <h1>About Me</h1>
+        <p>Here you'll find information about my skills, experience, and journey!</p>
+    </div>
+
+</body>
+</html>

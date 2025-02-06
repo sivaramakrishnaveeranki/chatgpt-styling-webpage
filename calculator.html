@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(45deg, #272728, #272523);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+
+        .calculator {
+            background-color: #2e2e2e;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            width: 300px;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            font-size: 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: none;
+            background-color: #333;
+            color: #fff;
+            text-align: right;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        input[type="button"] {
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            margin: 10px;
+            border-radius: 10px;
+            border: none;
+            background-color: #444;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        input[type="button"]:hover {
+            background-color: #555;
+            transform: translateY(-5px);
+        }
+
+        input[type="button"]:active {
+            background-color: #666;
+            transform: translateY(2px);
+        }
+
+        input[type="button"].equal {
+            background-color: #b7194b;
+        }
+
+        input[type="button"].equal:hover {
+            background-color: #ab1254;
+        }
+
+        input[type="button"].clear {
+            background-color: #ff4d4d;
+        }
+
+        input[type="button"].clear:hover {
+            background-color: #510f0f;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        td {
+            padding: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 400px) {
+            .calculator {
+                width: 250px;
+            }
+            input[type="button"] {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <div class="title">Calculator</div>
+        <input type="text" id="result1" disabled>
+        
+        <table>
+            <tr>
+                <td colspan="3"><input type="button" value="C" class="clear" onclick="clr()"></td>
+                <td><input type="button" value="/" onclick="display('/')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1" onclick="display('1')"></td>
+                <td><input type="button" value="2" onclick="display('2')"></td>
+                <td><input type="button" value="3" onclick="display('3')"></td>
+                <td><input type="button" value="-" onclick="display('-')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" onclick="display('4')"></td>
+                <td><input type="button" value="5" onclick="display('5')"></td>
+                <td><input type="button" value="6" onclick="display('6')"></td>
+                <td><input type="button" value="+" onclick="display('+')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="7" onclick="display('7')"></td>
+                <td><input type="button" value="8" onclick="display('8')"></td>
+                <td><input type="button" value="9" onclick="display('9')"></td>
+                <td><input type="button" value="*" onclick="display('*')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="." onclick="display('.')"></td>
+                <td><input type="button" value="0" onclick="display('0')"></td>
+                <td><input type="button" value="=" class="equal" onclick="equate()"></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function clr() {
+            document.getElementById("result1").value = "";
+        }
+
+        function display(val) {
+            document.getElementById("result1").value += val;
+        }
+
+        function equate() {
+            let x = document.getElementById("result1").value;
+            try {
+                let y = eval(x);
+                document.getElementById("result1").value = y;
+            } catch (error) {
+                document.getElementById("result1").value = "Error";
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Digital Clock</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(to right, #ff5e62, #ff9966);
+            animation: backgroundAnimation 20s infinite alternate;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .clock {
+            position: relative;
+            color: #00FF00;
+            font-size: 80px;
+            letter-spacing: 3px;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.8), 0 0 20px rgba(0, 255, 0, 0.6);
+            border: 2px solid #00FF00;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 1), 0 0 40px rgba(0, 255, 0, 0.7);
+            animation: glow 1.5s infinite alternate, pulse 2s infinite alternate;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background: linear-gradient(to right, #ff5e62, #ff9966); }
+            50% { background: linear-gradient(to right, #56CCF2, #2F80ED); }
+            100% { background: linear-gradient(to right, #ff5e62, #ff9966); }
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px rgba(0, 255, 0, 0.8), 0 0 20px rgba(0, 255, 0, 0.6); }
+            100% { text-shadow: 0 0 30px rgba(0, 255, 0, 1), 0 0 40px rgba(0, 255, 0, 0.7); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div id="digitalclock" class="clock"></div>
+    <script>
+        function showtime() {
+            var date = new Date();
+            var h = date.getHours();
+            var m = date.getMinutes();
+            var s = date.getSeconds();
+            var ss = "AM";
+
+            if (h == 0) {
+                h = 12; // 12-hour format
+            }
+            if (h > 12) {
+                h = h - 12; // convert to 12-hour format
+                ss = "PM";
+            }
+            h = (h < 10) ? "0" + h : h;
+            m = (m < 10) ? "0" + m : m;
+            s = (s < 10) ? "0" + s : s;
+
+            document.getElementById("digitalclock").innerHTML = h + ":" + m + ":" + s + " " + ss;
+            setTimeout(showtime, 1000); // Update every second
+        }
+        showtime();
+    </script>
+</body>
+</html>
